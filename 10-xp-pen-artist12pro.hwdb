@@ -1,0 +1,40 @@
+# /etc/udev/hwdb.d/10-xp-pen-artist12pro.hwdb
+
+# Remap express keys of XP-PEN Artist12 Pro
+# Input device ID: bus 0x03 vendor 0x28bd product 0x901f
+
+# place me into /etc/udev/hwdb.d/10-xp-pen-artist12pro.hwdb
+# and run:
+#   sudo udevadm hwdb --update; sudo udevadm trigger
+
+# print list of key codes:
+#   sed -n '/KEY_/{s/.*KEY_\([A-Za-z0-9_]\+\).*/\L\1/g;p}' /usr/include/linux/input-event-codes.h | less
+ 
+# Original scancodes and key binding (from top to bottom)
+# key1 : 70005 (b)
+# key2 : 70008 (e)
+# key3 : 700e2 (Left_ALT)
+# key4 : 7002c (Space)
+# Wheel + : 700e0 70056 (LEFTCTRL -)
+# Wheel - : 700e0 70057 (LEFTCTRL +)
+# key5 : 70019 (v)
+# key6 : 700e0 70016 (LEFTCTRL s)
+# key7 : 700e0 7001d (LEFTCTRL z)
+# key8 : 700e0 700e2 70011 (LEFTCTRL LEFTALT n)
+
+# Notes
+# 700e0 : mute (assign to fn) to disable this code sent before wheel and keys 6,7,8
+# key3 and key8 conflict (both uses 700e2 code), key3 not changed (ALT); key8 code 70011 changed (will send ALT+new key)
+evdev:input:b0003v28BDp091F*
+ KEYBOARD_KEY_700e0=fn
+ KEYBOARD_KEY_70005=f12
+ KEYBOARD_KEY_70008=b
+ KEYBOARD_KEY_700e2=leftalt
+ KEYBOARD_KEY_70056=kpminus
+ KEYBOARD_KEY_70057=kpplus
+ KEYBOARD_KEY_7002c=rightshift
+ KEYBOARD_KEY_70019=leftctrl
+ KEYBOARD_KEY_70016=d
+ KEYBOARD_KEY_7001d=e
+ KEYBOARD_KEY_70011=f13
+ 

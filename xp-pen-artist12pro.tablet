@@ -1,0 +1,28 @@
+# XP-Pen Artist 12 Pro
+# Put in /usr/share/libwacom/
+#https://github.com/linuxwacom/libwacom/blob/master/data/wacom.example
+
+[Device]
+Name=XP-Pen Artist 12 Pro
+DeviceMatch=usb:28bd:091f
+#IntegratedIn=Display
+
+#Class=Cintiq
+#Width=10
+#Height=7
+
+Layout=cintiq-12wx.svg
+#Styli=0x913;0x91b;0x813;0x81b;0x823;0x82b;0x801;0x885;
+#Styli=0xffffd
+
+[Features]
+Stylus=true
+Reversible=true
+Buttons=8
+NumStrips=1
+
+[Buttons]
+Left=A;B;C;D;E;F;G;H
+EvdevCodes=0x110;0x111;0x112;0x113;0x114;0x115;0x116;0x117
+
+#Ring=J;K;L;M
